@@ -87,8 +87,8 @@ class DitTalkingHead(nn.Module):
         elif self.audio_model == 'hubert_zh_ori' or self.audio_model == 'hubert_zh': # 根据经验，hubert特征提取器效果更好
             print("using hubert chinese ori")
             model_path = '../../pretrained_weights/TencentGameMate:chinese-hubert-base'
-            if platform.system() == "Windows":
-                model_path = '../../pretrained_weights/chinese-hubert-base'
+            #if platform.system() == "Windows":
+            #    model_path = '../../pretrained_weights/chinese-hubert-base'
             from .hubert import HubertModel
             self.audio_encoder = HubertModel.from_pretrained(make_abs_path(model_path))
             self.audio_encoder.feature_extractor._freeze_parameters()
